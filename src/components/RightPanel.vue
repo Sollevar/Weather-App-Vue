@@ -12,7 +12,6 @@ const { data, error, activeIndex } = defineProps({
 });
 const emit = defineEmits({
     selectIndex: null,
-    selectCity: null,
 });
 
 const errorMap = new Map([[1006, 'Указанный город не найден']]);
@@ -52,12 +51,13 @@ const statData = computed(() => {
                     :is-active="activeIndex == index" @click="emit('selectIndex', index)" />
             </div>
         </div>
-        <CitySelect @city-select="(city) => emit('selectCity', city)" />
+        <CitySelect/>
     </div>
 </template>
 
 <style scoped>
 .right-panel {
+    min-width: 527px;
     position: relative;
     flex-direction: column;
     display: flex;
@@ -75,6 +75,7 @@ const statData = computed(() => {
 .card-days {
     margin: 35px 0;
     display: flex;
+    justify-content: center;
     gap: 5px
 }
 </style>

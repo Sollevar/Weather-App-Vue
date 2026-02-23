@@ -29,6 +29,7 @@ const { temp, date, weatherCode } = defineProps({
     flex-direction: column;
     gap: 15px;
     align-items: center;
+    width: 100%;
     border: none;
     border-radius: 10px;
     cursor: pointer;
