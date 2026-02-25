@@ -42,8 +42,8 @@ const date = computed(() => {
         <div class="panel__bottom">
             <div class="panel__temp--icon">
                 <RainIcon v-if="data.day.condition.code >= 1063" :size="98" />
-                <CloudIcon v-if="data.day.condition.code >= 1006 && data.day.condition.code < 1063" />
-                <SunnyIcon v-if="data.day.condition.code <= 1003" />
+                <CloudIcon v-if="data.day.condition.code >= 1006 && data.day.condition.code < 1063" :size="98" />
+                <SunnyIcon v-if="data.day.condition.code <= 1003" :size="98" />
             </div>
             <span class="panel__temp">
                 {{ data.day.avgtemp_c }} °C

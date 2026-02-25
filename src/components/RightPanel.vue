@@ -19,19 +19,23 @@ const errorDisplay = computed(() => {
     return errorMap.get(error?.error?.code);
 })
 
+const activeData = computed(()=>{
+    return data.forecast.forecastday[activeIndex].day;
+})
+
 const statData = computed(() => {
     return [
         {
-            label: 'Облачность',
-            value: `${data.current.cloud}` + ' %',
+            label: 'Вероятность осадков',
+            value: `${activeData.value.daily_chance_of_rain}` + ' %',
         },
         {
             label: 'Влажность',
-            value: `${data.current.humidity}` + ' %',
+            value: `${activeData.value.avghumidity}` + ' %',
         },
         {
             label: 'Ветер',
-            value: `${data.current.wind_kph}` + ' км/ч',
+            value: `${activeData.value.maxwind_kph}` + ' км/ч',
         },
     ]
 });
@@ -57,7 +61,7 @@ const statData = computed(() => {
 
 <style scoped>
 .right-panel {
-    min-width: 527px;
+    min-width: 615px;
     position: relative;
     flex-direction: column;
     display: flex;
