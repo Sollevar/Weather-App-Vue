@@ -8,7 +8,7 @@ const API_ENDPOINT = 'https://api.weatherapi.com/v1'; // базовый url за
 const data = ref();
 const error = ref(); // будет хранится информация ошибок при запросе к API
 const activeIndex = ref(0);
-const currentCity = ref('Moscow');
+const currentCity = ref('Москва');
 provide('currentCity', currentCity);
 
 watch(currentCity, () =>{
@@ -42,7 +42,11 @@ async function getCity(city) {
 
 <template>
   <main class="main">
-    <LeftPanel />
+    <LeftPanel
+    v-if="data"
+    :data="data.forecast.forecastday[activeIndex]"
+    :currentCity="currentCity"
+    />
     <RightPanel 
     :data="data"
     :error="error"
