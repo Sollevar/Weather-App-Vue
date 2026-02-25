@@ -4,9 +4,11 @@
 - DayCard
 - ListDays
 - Statistic 
-- WeatherIcon
+- WeatherIcons
 - LeftPanel
 - CitySelect
 - Input
+- Error
+- RightPanel
 ## API - www.weatherapi.com
   
