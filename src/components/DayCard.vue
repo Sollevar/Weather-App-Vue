@@ -2,11 +2,15 @@
 import RainIcon from '../icons/weather/RainIcon.vue';
 import CloudIcon from '../icons/weather/CloudIcon.vue';
 import SunnyIcon from '../icons/weather/SunnyIcon.vue';
+import { computed } from 'vue';
 const { temp, date, weatherCode } = defineProps({
     temp: Number,
     date: Date,
     weatherCode: Number,
     isActive: Boolean,
+});
+const dayDate = computed(()=>{
+    return date.toLocaleDateString("ru-Ru", { weekday: 'short' });
 })
 </script>
 <template>
@@ -17,7 +21,7 @@ const { temp, date, weatherCode } = defineProps({
             <SunnyIcon v-if="weatherCode <= 1003" :color="isActive ? 'black' : 'white'" />
         </div>
         <span class="card__temp">
-            {{ date.toLocaleDateString("ru-Ru", { weekday: 'short' }) }}
+           {{ dayDate }}
         </span>
         <span class="card__day">{{ temp }} °C</span>
     </button>
