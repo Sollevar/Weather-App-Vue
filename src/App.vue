@@ -29,13 +29,11 @@ async function getCity(city) {
   const res = await fetch(`${API_ENDPOINT}/forecast.json?${params.toString()}`);
   if (res.status !== 200) {
     error.value = await res.json();
-    console.log(error.value);
     data.value = null;
     return;
   }
   error.value = null;
   data.value = await res.json();
-  console.log(data.value);
 }
 
 </script>
